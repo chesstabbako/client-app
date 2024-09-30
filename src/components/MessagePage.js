@@ -122,20 +122,27 @@ const MessagePage = () => {
         {/**all message show here */}
         <div className="flex flex-col gap-2 py-2 mx-2" ref={currentMessage}>
           {allUser.map((messages, index) => {
-            messages.allMsgs?.map((msg, index) => {
-              console.log('msg', msg.text)
-              return (
+
+            console.log('jdkdkdkdd', messages)
+
+            let name= messages.sender.name;
+
+            /* let formatTime= messages.sort((a, b) => a.allMessage > b.allMessage) */
+           return messages.allMsgs?.map((msg, index) => {
+              return (        
                 <div
                   className={` p-1 py-1 rounded w-fit max-w-[280px] md:max-w-sm lg:max-w-md ${
                     user._id === msg?._id
                       ? "ml-auto bg-teal-100"
                       : "bg-white"
                   }`}
+
+                  key={index}
                 >
                   <div>
-                    <Avatar name={dataUser?.name} width={10} height={10} />
+                    <Avatar name={name} width={30} height={30} />
                   </div>
-                  <p className="px-2">{"hola"}</p>
+                  <p className="px-2">{msg.text}</p>
                   <p className="text-xs ml-auto w-fit">
                     {moment(msg.createdAt).format("hh:mm")}
                   </p>
