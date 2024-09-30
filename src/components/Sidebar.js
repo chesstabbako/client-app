@@ -121,6 +121,8 @@ const Sidebar = () => {
           )}
 
           {allUser.map((conv, index) => {
+
+            /* console.log(conv) */
             return (
               <NavLink
                 key={conv?._id}
@@ -128,15 +130,14 @@ const Sidebar = () => {
               >
                 <div>
                   <Avatar
-                    imageUrl={conv?.userDetails?.profile_pic}
-                    name={conv?.userDetails?.name}
+                    name={conv?.sender?.name}
                     width={40}
                     height={40}
                   />
                 </div>
                 <div>
                   <h3 className="text-ellipsis line-clamp-1 font-semibold text-base">
-                    {conv?.userDetails?.name}
+                    {conv?.sender?.name}
                   </h3>
                   <div className="text-slate-500 text-xs flex items-center gap-1">
                     <div className="flex items-center gap-1">
